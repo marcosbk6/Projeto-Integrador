@@ -1,0 +1,53 @@
+body {
+    background-color: #EBEBD3;
+  }
+  
+  .navbar {
+    background-color: #B0956D !important;
+  }
+  
+  .container-principal {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+    padding: 40px;
+  }
+
+  .area-carrossel {
+    max-width: 800px;
+    margin: 10px 60px 0;
+  }
+  
+  .carrinho {
+    width: 20%;
+    background-color: #CEC0A0;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 100px 0 0;
+  }
+
+  
+  .btn {
+    background-color: #B0956D;
+    border: none;
+  }
+  
+  .carousel-item img {
+    border-radius: 10px;
+  }
+
+  .login-box {
+    background-color: #CEC0A0;
+    padding: 20px 20px;
+    border-radius: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  
