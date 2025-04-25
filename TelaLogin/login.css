@@ -37,7 +37,7 @@ body {
     width: 90%;
     height: 350px;
     background-color: #EBEBD3;
-    background-image: url(./TelaLogin/images/papeldeparede.jpg);
+    background-image: url(../TelaLogin/images/papeldeparede.jpg);
     background-position: center;
     background-size: cover;
 
