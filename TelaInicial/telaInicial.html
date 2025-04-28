@@ -1,110 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Tela de Inicio</title>
+    <title>Tela Inicial</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Logo</font></font></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Alternar navegação">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Home
-              </font></font><span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(atual)</font></font></span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfumaria</font></font></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maquiagem</font></font></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hidratante</font></font></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Suspenso</font></font></a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Genero</font></font></a>
-              <a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Masculino</font></font></a>
-              <a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Feminino</font></font></a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Link separado</font></font></a>
-            </div>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-sm-2" type="search" placeholder="Procurar">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Procurar</font></font></button>
-        </form>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container-principal d-flex justify-content-between p-4">
   
-    <!-- Área do carrossel e produtos -->
-    <div class="area-carrossel" style="flex: 3;">
-      <!-- Carrossel -->
-      <div id="carouselExampleIndicators" class="carousel slide mb-3">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="images/perfume1.png" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="images/perfume2.png" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Próximo</span>
-        </button>
-      </div>
-  
-      <!-- Produtos em destaque -->
-      <div class="login-box">
-        <img src="images/destaque1.png" width="100">
-        <img src="images/destaque2.png" width="100">
-        <img src="images/destaque3.png" width="100">
-        <img src="images/destaque4.png" width="100">
-        <img src="images/destaque5.png" width="100">
-      </div>
-    </div>
+  <div class="container">
 
-    <!-- Carrinho -->
-    <div class="carrinho p-3">
-      <div>
-        <h5 class="mb-4">Meu Carrinho</h5>
-        
-      </div>
+    <div class="top-bar"></div>
+
+    <div class="carrossel-setas">
+      <button class="seta esquerda">&#10094;</button>
       
-      <div>
-        <p>Total <strong>R$ 00,00</strong></p>
-        <button type="button" class="btn btn-secondary w-100 mt-3">Finalizar Compra</button>
+      <div class="carrossel">
+        <article class="card">
+          <img src="images/perfume1.png" alt="Perfume 1" class="img-card">
+        </article>
+        <article class="card">
+          <img src="images/perfume2.png" alt="Perfume 2" class="img-card">
+        </article>
       </div>
+
+      <button class="seta direita">&#10095;</button>
     </div>
 
-  
+    <div class="produtos-destaque">
+      <img src="images/destaque1.png" width="100">
+      <img src="images/destaque2.png" width="100">
+      <img src="images/destaque3.png" width="100">
+      <img src="images/destaque4.png" width="100">
+      <img src="images/destaque5.png" width="100">
+    </div>
+
   </div>
+
+
+
+
+  <script>
+    const carrossel = document.querySelector('.carrossel');
+    const btnLeft = document.querySelector('.seta.esquerda');
+    const btnRight = document.querySelector('.seta.direita');
+  
+    btnLeft.addEventListener('click', () => {
+      carrossel.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+  
+    btnRight.addEventListener('click', () => {
+      carrossel.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  </script>
   
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>
