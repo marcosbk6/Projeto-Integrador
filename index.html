@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="telaInicial2.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <header class="header">
+      <button class="menu-btn" onclick="alternarSidebar()">☰</button>
+      <nav class="sidebar" id="sidebar">
+        <a class="btn" href="#">Início</a>
+        <a class="btn" href="#">Perfumaria</a>
+        <a class="btn" href="#">Maquiagem</a>
+        <a class="btn" href="#">Hidratante</a>
+      </nav>
+      <a class="carrinho" href="#"></a>
+    </header>
+  
+    <div class="container">
+  
+      <button class="seta esquerda" onclick="rolarCarrossel(-1)">❮</button>
+  
+      <div class="carrossel" id="carrossel"> 
+      <article class="card"><img src="./TelaInicial/images/destaq-Kaiak.png" alt="Kaiak"></article>
+      <article class="card"><img src="./TelaInicial/images/destaq-Llía.png" alt="Llía"></article>
+      </div>
+  
+      <button class="seta direita" onclick="rolarCarrossel(1)">❯</button>
+  
+    </div>
+  
+    <script src="sidebar.js"></script>
+    <script>
+      function rolarCarrossel(direcao) {
+        const carrossel = document.getElementById('carrossel');
+        const larguraCard = carrossel.querySelector('.card').offsetWidth + 20; // 20 = gap
+        carrossel.scrollBy({
+          left: direcao * larguraCard,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+</html>
