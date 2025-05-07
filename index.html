@@ -34,16 +34,24 @@
       <button class="seta direita" onclick="rolarCarrossel(1)">❯</button>
   
     </div>
+
+    <section class="produtos-destaque">
+      <article class="produto"><img src="/assets/imagens/Feminino/Perfume/Una Senses Perfume F.jpg" alt="Destaque 1">
+         <h3 class="descricao-produto">Una Senses Deo Parfum 5ml</h3>
+         <h4 class="preco-produto"> R$203,30</h4>
+         <button class="btn-add-sacola">Adicionar a sacola</button>
+        </article>
+        <article class="produto"><img src="/assets/imagens/Feminino/Hidratante/Creme para Corpo Tododia Framboesa e Pimenta Rosa.png" alt="Destaque 1">
+          <h3 class="descricao-produto">Creme Nutritivo Para o Corpo Tododia Framboesa e Pimenta Vermelha</h3>
+          <h4 class="preco-produto">R$ 203,30</h4>
+          <button class="btn-add-sacola">Adicionar a sacola</button>
+         </article>
+         <article class="produto"><img src="/assets/imagens/Feminino/Perfume/Una Senses Perfume F.jpg" alt="Destaque 1">
+          <h3 class="descricao-produto">Creme Nutritivo Para o Corpo Tododia Framboesa e Pimenta Vermelha</h3>
+          <h4 class="preco-produto">R$ 203,30</h4>
+          <button class="btn-add-sacola">Adicionar a sacola</button>
+         </article>
+    </section>
   
     <script src="sidebar.js"></script>
-    <script>
-      function rolarCarrossel(direcao) {
-        const carrossel = document.getElementById('carrossel');
-        const larguraCard = carrossel.querySelector('.card').offsetWidth + 20; // 20 = gap
-        carrossel.scrollBy({
-          left: direcao * larguraCard,
-          behavior: 'smooth'
-        });
-      }
-    </script>
 </html>
