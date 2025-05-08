@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tela-Login.css">
+    <link rel="icon" href="./assets/login-imagens/logo2.png">
+    <title>Document</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="top-bar"></div>
+        <div class="logo-section">
+            <img src="./assets/login-imagens/logo2.png" alt="Logo">
+        </div>
+        <div class="login-box">
+            <div class="login-input">
+                <label for="login"></label>
+                <input type="text" id="login" class="input" placeholder="Login">
+            </div>
+            <div class="login-input">
+                <label for="senha"></label>
+                <input type="password" id="senha" class="input" placeholder="Senha">
+            </div>
+            <div class="btn">
+                <!-- <button id="btnEntrar"> so funciona se o backend estiver ligado -->
+                <button onclick="window.location.href='./TelaInicial/Tela-Inicial.html'">
+                    ENTRAR 
+                </button>
+                <button>
+                    CRIAR
+                </button>
+            </div>
+        </div>
+
+    </div>  
+
+
+    <script>
+        // Esperar até que o conteúdo da página esteja carregado
+        document.addEventListener('DOMContentLoaded', () => {
+            // Selecionando os campos de login e senha
+            const btnEntrar = document.getElementById('btnEntrar');
+            const inputUsername = document.querySelector('.input[placeholder="Login"]');
+            const inputSenha = document.querySelector('.input[placeholder="Senha"]');
+    
+            // Evento de clique no botão ENTRAR
+            btnEntrar.addEventListener('click', async () => {
+                const username = inputUsername.value;
+                const senha = inputSenha.value;
+    
+                // Verificar se os campos estão preenchidos
+                if (!username || !senha) {
+                    alert('Preencha todos os campos');
+                    return;
+                }
+    
+                // Fazer a requisição de login para o backend
+                try {
+                    const response = await fetch('http://localhost:3000/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ username, senha }),
+                    });
+    
+                    const data = await response.json();
+    
+                    if (response.ok) {
+                        // Se o login for bem-sucedido, redireciona para a tela inicial
+                        alert(data.message); // Mensagem do servidor
+                        window.location.href = './TelaInicial/tela-Inicial.html'; // Redirecionar
+                    } else {
+                        // Caso erro no login
+                        alert(data.message); // Mensagem de erro
+                    }
+                } catch (error) {
+                    console.error('Erro ao fazer login:', error);
+                    alert('Erro ao tentar realizar o login.');
+                }
+            });
+        });
+    </script>
+      
+
+    
+</body>
+</html>
