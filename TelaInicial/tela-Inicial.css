@@ -174,13 +174,96 @@ a{
 
 @media (max-width: 425px) {
   .container{
-    max-width: 100px;
+    width: 400px;
+    height: 350px;
   }
   .card{
     width: 400px;
+    height: 350px;
   }
   .card img{
-    width: 350px;
+    width: 400px;
+    height: 350px;
+  }
+
+  .produto img{
+    width: 50px;
+  }
+
+  .titulo {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    margin: 15px auto 15px auto;
+    background-color: #EBE6D9;
+    border-radius: 7px;
+    font-weight: 100;
+  }
+
+  .produtos-destaque{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    background-color: #CEC0A0;
+    justify-content: center;
+    place-items: center;
+    width: 92%;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 20px;
+    column-gap: 0;
+  }
+
+  .produtos-destaque h3{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    line-height: 1.2;
+    height: 20px;
+    padding: 5px 0;
+    font-size: 10px;
+  }
+
+  .produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 150px;
+    height: 205px;
+    background-color: #EBE6D9;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 8px;  
+  }
+
+  .produto img{
+    width: 80%;
+    border-radius: 10px;
+  }
+
+  .preco-produto {
+    display: flex;
+    justify-content: start;
+    width: 120px;
+  }
+
+  .btn-add-sacola {
+    appearance: none;
+    border: none;
+    width: 130px;
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 5px;
+
+  }
+  
+  .btn-add-sacola:hover{
+    background-color: #B0956D;
+    color: white;
   }
 }
 
@@ -229,12 +312,12 @@ a{
     column-gap: 0;
   }
 
-  .produtos-destaque h3{
+  .produtos-destaque h3{ /*descrição*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%;
-    line-height: 1.2;
+    max-width: 120px;
+    line-height: 0.2;
     height: 20px;
     padding: 5px 0;
     font-size: 10px;
@@ -251,24 +334,13 @@ a{
     border-radius: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
-    gap: 8px;
-
-    
+    gap: 8px;  
   }
+
   .produto img{
     width: 80%;
     border-radius: 10px;
     
-  }
-
-  .descricao-produto {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    font-size: 15px;
-    width: 80%;
-    height: 60px;
-    padding-top: 5px;
   }
 
   .preco-produto {
