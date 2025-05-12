@@ -95,7 +95,7 @@ a{
   align-items: center;
   justify-content: center;
   gap: 10px;
-  max-width: 1700px;
+  width: 1850px;
   min-width: 350px;
   padding-top: 20px;
   margin: 0 auto;
@@ -155,20 +155,298 @@ a{
   max-height: 100%;
 }
 
-
-@media (max-width: 768px) {
-  .container{
-    width: 700px;;
+@media (max-width: 1440px) {
+  .header {
+    padding: 0px 10px
   }
 
-  .card{
-    display: flex;
-    align-items: center;
-    width: 631px;
+  .container{
+    width: 1400px;
+    height: 530px;
+  }
+  
+  .card {
+    width: 1400px;
+    height: 530px;
   }
 
   .card img {
-    width: 632px;
+    width: 1400px;
+    height: 530px;
+  }
+
+  .titulo {
+    display: flex;
+    justify-content: center;
+    width: 1400px;
+    margin: 15px auto 15px auto;
+    background-color: #EBE6D9;
+    border-radius: 7px;
+    font-weight: 100;
+  }
+
+  .produtos-destaque {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: #CEC0A0;
+    justify-content: center;
+    place-items: center;
+    width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 20px;
+    column-gap: 0;
+  }
+
+  .produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 320px;
+    height: 380px;
+    background-color: #EBE6D9;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 8px;  
+  }
+
+  .produtos-destaque h3{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 288px;
+    line-height: 0.2;
+    height: 20px;
+    padding: 7px 0;
+    font-size: 15px;
+  }
+
+  .produto img{
+    width: 288px;
+    border-radius: 10px;
+  }
+
+  .preco-produto {
+    display: flex;
+    justify-content: start;
+    width: 288px;
+  }
+
+  .btn-add-sacola {
+    appearance: none;
+    border: none;
+    width: 288px;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 10px 5px;
+
+  }
+  
+  .btn-add-sacola:hover{
+    background-color: #B0956D;
+    color: white;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .header {
+    background-color: #CEC0A0;
+    color: white;
+    padding: 0px 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .container{
+    width: 990px;
+    height: 530px;
+  }
+  
+  .card {
+    width: 990px;
+    height: 530px;
+  }
+
+  .card img {
+    width: 990px;
+    height: 530px;
+  }
+
+  .titulo {
+    display: flex;
+    justify-content: center;
+    width: 990px;
+    margin: 15px auto 15px auto;
+    background-color: #EBE6D9;
+    border-radius: 7px;
+    font-weight: 100;
+  }
+
+  .produtos-destaque {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: #CEC0A0;
+    justify-content: center;
+    place-items: center;
+    width: 990px;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 20px;
+    column-gap: 0;
+  }
+
+  .produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 220px;
+    height: 295px;
+    background-color: #EBE6D9;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 8px;  
+  }
+
+  .produtos-destaque h3{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 198px;
+    line-height: 0.2;
+    height: 20px;
+    padding: 7px 0;
+    font-size: 15px;
+  }
+
+  .produto img{
+    width: 90%;
+    border-radius: 10px;
+  }
+
+  .preco-produto {
+    display: flex;
+    justify-content: start;
+    width: 198px;
+  }
+
+  .btn-add-sacola {
+    appearance: none;
+    border: none;
+    width: 198px;
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 10px 5px;
+
+  }
+  
+  .btn-add-sacola:hover{
+    background-color: #B0956D;
+    color: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .container{
+    width: 730px;
+    height: 450px;
+  }
+
+  .card{
+    width: 730px;
+    height: 450px;
+  }
+
+  .card img {
+    width: 730px;
+    height: 450px;
+  }
+
+  .titulo {
+    display: flex;
+    justify-content: center;
+    width: 730px;
+    margin: 15px auto 15px auto;
+    background-color: #EBE6D9;
+    border-radius: 7px;
+    font-weight: 100;
+  }
+  
+  .produtos-destaque {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    background-color: #CEC0A0;
+    justify-content: center;
+    place-items: center;
+    width: 730px;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 20px;
+    column-gap: 0;
+  }
+
+  .produtos-destaque h3{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 198px;
+    line-height: 0.2;
+    height: 20px;
+    padding: 7px 0;
+    font-size: 15px;
+  }
+
+  .produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 220px;
+    height: 275px;
+    background-color: #EBE6D9;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 8px;  
+  }
+
+  .produto img{
+    width: 90%;
+    border-radius: 10px;
+  }
+
+  .preco-produto {
+    display: flex;
+    justify-content: start;
+    width: 198px;
+  }
+
+  .btn-add-sacola {
+    appearance: none;
+    border: none;
+    width: 198px;
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 5px;
+
+  }
+  
+  .btn-add-sacola:hover{
+    background-color: #B0956D;
+    color: white;
   }
 }
 
@@ -184,10 +462,6 @@ a{
   .card img{
     width: 400px;
     height: 350px;
-  }
-
-  .produto img{
-    width: 50px;
   }
 
   .titulo {
@@ -214,25 +488,14 @@ a{
     gap: 20px;
     column-gap: 0;
   }
-
-  .produtos-destaque h3{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 120px;
-    line-height: 1.2;
-    height: 20px;
-    padding: 5px 0;
-    font-size: 10px;
-  }
-
+  
   .produto {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 150px;
-    height: 205px;
+    width: 180px;
+    height: 220px;
     background-color: #EBE6D9;
     border-radius: 10px;
     padding-top: 15px;
@@ -240,21 +503,33 @@ a{
     gap: 8px;  
   }
 
+  .produtos-destaque h3{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 144px;
+    line-height: 0.2;
+    height: 20px;
+    padding: 5px 0;
+    font-size: 10px;
+  }
+
+
   .produto img{
-    width: 80%;
+    width: 144px;
     border-radius: 10px;
   }
 
   .preco-produto {
     display: flex;
     justify-content: start;
-    width: 120px;
+    width: 144px;
   }
 
   .btn-add-sacola {
     appearance: none;
     border: none;
-    width: 130px;
+    width: 144px;
     font-size: 13px;
     border-radius: 5px;
     padding: 5px;
