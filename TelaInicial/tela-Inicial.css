@@ -1,6 +1,5 @@
 * {
   margin:0;
-  
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -95,12 +94,12 @@ a{
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 1850px;
-  min-width: 350px;
+  max-width: 1750px;
+  width: 100%;
+  height: 730px;
   padding-top: 20px;
   margin: 0 auto;
   overflow: hidden;
-  height: 450px;
 }
 
 .seta {
@@ -140,20 +139,101 @@ a{
 
 }
 
+
 .card{
   display: flex;
   align-items: center;
   justify-content: center;
   background-image: -moz-linear-gradient(-450px);
   scroll-snap-align:center;
-  width: 1700px;
-  height: 450px;
+  width: 1750px;
+  height: 730px;
 }
 
 .card img{
-  width: 100%;
-  max-height: 100%;
+  width: 1750px;
+  height: 730px;
 }
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto 15px auto;
+  width: 1750px;
+  background-color: #EBE6D9;
+  border-radius: 7px;
+  font-weight: 400;
+}
+
+.produtos-destaque {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: #CEC0A0;
+  justify-content: center;
+  place-items: center;
+  max-width: 1750px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 20px;
+  column-gap: 0;
+}
+.produto {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  background-color: #EBE6D9;
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  gap: 8px;  
+}
+
+.produtos-destaque h3{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 350px;
+  line-height: 0.2;
+  height: 20px;
+  padding: 7px 0;
+  font-size: 15px;
+}
+
+.produto img{
+  width: 350px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.preco-produto {
+  display: flex;
+  justify-content: start;
+  width: 350px;
+}
+
+.btn-add-sacola {
+  appearance: none;
+  border: none;
+  width: 350px;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 10px 5px;
+
+}
+
+.btn-add-sacola:hover{
+  background-color: #B0956D;
+  color: white;
+}
+
+
 
 @media (max-width: 1440px) {
   .header {
@@ -161,7 +241,8 @@ a{
   }
 
   .container{
-    width: 1400px;
+    max-width: 1400px;
+    width: 100%;
     height: 530px;
   }
   
@@ -266,7 +347,8 @@ a{
   }
 
   .container{
-    width: 990px;
+    max-width: 990px;
+    width: 100%;
     height: 530px;
   }
   
@@ -323,7 +405,7 @@ a{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 198px;
+    width: 198px;
     line-height: 0.2;
     height: 20px;
     padding: 7px 0;
@@ -359,7 +441,8 @@ a{
 
 @media (max-width: 768px) {
   .container{
-    width: 730px;
+    max-width: 730px;
+    width: 100%;
     height: 450px;
   }
 
@@ -402,7 +485,7 @@ a{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 198px;
+    width: 198px;
     line-height: 0.2;
     height: 20px;
     padding: 7px 0;
@@ -452,16 +535,17 @@ a{
 
 @media (max-width: 425px) {
   .container{
-    width: 400px;
-    height: 350px;
+    max-width: 400px;
+    width: 100%;
+    height: 320px;
   }
   .card{
     width: 400px;
-    height: 350px;
+    height: 320px;
   }
   .card img{
     width: 400px;
-    height: 350px;
+    height: 320px;
   }
 
   .titulo {
@@ -544,16 +628,18 @@ a{
 
 @media (max-width: 375px) {
   .container{
-    width: 50px;
+    max-width: 350px;
+    width: 100%;
     height: 230px;
     
   }
   .card {
     width: 350px;
-    height: 200px;
+    height: 230px;
   }
   .card img {
     width: 350px;
+    height: 230px;
   }
   .seta {
     font-size: 1.5rem;
@@ -591,7 +677,7 @@ a{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 120px;
+    width: 120px;
     line-height: 0.2;
     height: 20px;
     padding: 5px 0;
