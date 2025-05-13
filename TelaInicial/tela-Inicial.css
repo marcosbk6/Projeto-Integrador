@@ -116,7 +116,6 @@ a{
   border: none;
   cursor: pointer;
   color: black;
-  z-index: 1;
   border-radius: 50%;
 }
 
