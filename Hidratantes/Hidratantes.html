@@ -12,58 +12,88 @@
   <title>Hidradantes</title>
 </head>
 <body>
-    
+
+    <header class="header">
+        <button class="menu-btn" onclick="alternarSidebar()">☰</button>
+        <nav class="sidebar" id="sidebar">
+          <a class="btn" href="../TelaInicial/tela-Inicial.html">Início</a>
+          <a class="btn" href="../PerfMasculino/PerfMasculino.html">Perfumes/M</a>
+          <a class="btn" href="../PerfFeminino/PerfFeminino.html">Perfumes/F</a>
+          <a class="btn" href="../Maquiagem/Maquiagem.html">Maquiagem</a>
+          <a class="btn" href="../Hidratantes/Hidratantes.html">Hidratante</a>
+
+        </nav>
+        <a class="carrinho" href="../Carrinho/Carrinho.html"></a>
+    </header>
+
+    <h1 class="titulo">Hidradantes</h1>
+
+
     <div class="container">
 
-        <div class="top-bar"></div>
 
-        <h1 class="titulo">Hidradantes</h1>
-
-        <div class="produtos-grid">
-            <div class="produto">
-                <img src="images/Hidratante1.png" alt="Hidradante 1">
-                <h2>Hidradante 1</h2>
-                <p>R$ 129,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Hidratante2.png" alt="Hidradante 2">
-                <h2>Hidradante 2</h2>
-                <p>R$ 149,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Hidratante3.png" alt="Hidradante 3">
-                <h2>Hidradante 3</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Hidratante4.png" alt="Hidradante 4">
-                <h2>Hidradante 4</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Hidratante5.png" alt="Hidradante 5">
-                <h2>Hidradante 5</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Hidratante6.png" alt="Hidradante 6">
-                <h2>Hidradante 6</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Hidratante7.png" alt="Hidradante 7">
-                <h2>Hidradante 7</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Hidratante8.png" alt="Hidradante 8">
-                <h2>Hidradante 8</h2>
-                <p>R$ 99,90</p>
-            </div>
+        <section class="produtos-grid">
+            <article class="produto">
+                <img src="images/Hidratante1.png" alt="Creme para Corpo Tododia Framboesa e Pimenta Rosa">
+                <h2 class="nome-produto">Creme para Corpo Tododia Framboesa e Pimenta Rosa</h2>
+                <p>R$ 59,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Hidratante2.png" alt="Creme para o Corpo Tododia Amora Vermelha e Jabuticaba">
+                <h2 class="nome-produto">Creme para o Corpo Tododia Amora Vermelha e Amora Vermelha e Jabuticaba</h2>
+                <p>R$ 59,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Hidratante3.png" alt="Creme Para o Corpo Tododia Algodão">
+                <h2 class="nome-produto">Creme Para o Corpo Tododia Algodão</h2>
+                <p>R$ 59,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Hidratante4.png" alt="Creme Noturno Para o Corpo Tododia Todanoite">
+                <h2 class="nome-produto">Creme Noturno Para o Corpo Tododia Todanoite</h2>
+                <p>R$ 59,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Hidratante5.png" alt="Creme para o Corpo Tododia Tâmara e Canela">
+                <h2 class="nome-produto">Creme para o Corpo Tododia Tâmara e Canela</h2>
+                <p>R$ 59,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Hidratante6.png" alt="Creme Para o Corpo Tododia Capim Limão e Hortelã">
+                <h2 class="nome-produto">Creme Para o Corpo Tododia Capim Limão e Hortelã</h2>
+                <p>R$ 59,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Hidratante7.png" alt="Creme para as Mãos Tododia Tâmara e Canela">
+                <h2 class="nome-produto">Creme para as Mãos Tododia Tâmara e Canela</h2>
+                <p>R$ 59,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Hidratante8.png" alt="Hidratante Para as Mãos Ekos Maracujá">
+                <h2 class="nome-produto">Hidratante Para as Mãos Ekos Maracujá</h2>
+                <p>R$ 59,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
         
-        </div>
+        </section>
     </div>
 
+    <script src="../TelaInicial/sidebar.js"></script>
+    
+    <script>
+        document.querySelectorAll('.nome-produto').forEach(el => {
+            el.addEventListener('click', () => {
+            el.classList.toggle('expandido');
+            });
+        });
+    </script>
 
 </body>
 </html>
