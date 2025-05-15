@@ -132,6 +132,12 @@ a{
     display: block;
   }
 
+  .dropbtn {
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
   
 }
 
