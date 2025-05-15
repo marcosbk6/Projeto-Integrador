@@ -193,12 +193,12 @@ a{
   justify-content: center;
   background-image: -moz-linear-gradient(-450px);
   scroll-snap-align:center;
-  width: 1750px;
+  width: 100%;
   height: 730px;
 }
 
 .card img{
-  width: 1750px;
+  width: 1600px;
   height: 730px;
 }
 
@@ -206,7 +206,7 @@ a{
   display: flex;
   justify-content: center;
   margin: 15px auto;
-  width: 1750px;
+  width: 100%;
   background-color: #EBE6D9;
   border-radius: 7px;
   font-weight: 400;
@@ -218,15 +218,13 @@ a{
   background-color: #CEC0A0;
   justify-content: center;
   place-items: center;
-  max-width: 1750px;
   width: 100%;
-  height: 100%;
+  height: auto;
   margin: 0 auto;
   border-radius: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  gap: 20px;
-  column-gap: 0;
+  padding: 10px 0 10px 0;
+  gap: 10px;
+  
 }
 
 .produto {
@@ -234,42 +232,42 @@ a{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 400px;
-  height: 400px;
+  width: 95%;
+  height: auto;
   background-color: #EBE6D9;
   border-radius: 10px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  gap: 8px;  
+  padding: 20px 0 20px 0;
+  
+   
 }
 
 .produtos-destaque h3{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 350px;
-  line-height: 0.2;
+  width: 300px;
   height: 20px;
   padding: 7px 0;
   font-size: 15px;
+  text-align: center;
 }
 
 .produto img{
-  width: 350px;
+  width: 300px;
   height: 300px;
   border-radius: 10px;
 }
 
 .preco-produto {
   display: flex;
-  justify-content: start;
-  width: 350px;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
 .btn-add-sacola {
   appearance: none;
   border: none;
-  width: 350px;
+  width: 90%;
   font-size: 17px;
   border-radius: 5px;
   padding: 10px 5px;
@@ -422,8 +420,7 @@ a{
   }
   
   .produto {
-    width: 220px;
-    max-width: 220px;
+    width: 90%;
     height: 275px;
   }
 
@@ -475,7 +472,7 @@ a{
   }
   
   .produto {
-    width: 180px;
+    width: 90%;
     height: 220px;  
   }
 
@@ -535,7 +532,7 @@ a{
   }
   
   .produto {
-    width: 150px;
+    width: 90%;
     height: 200px; 
   }
 

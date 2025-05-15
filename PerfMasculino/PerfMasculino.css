@@ -136,11 +136,23 @@ a{
   border-radius: 8px;
 }
 
-.produto h2 {
+.nome-produto {
   margin: 10px 0 5px;
   font-size: 1.1rem;
   color: #333;
+  white-space: nowrap;        /* Impede que o texto quebre para a próxima linha */
+  overflow: hidden;           /* Esconde o texto que ultrapassa o limite do container */
+  text-overflow: ellipsis;    /* Adiciona os 3 pontinhos (...) */
+  max-width: 150px;           /* Define a largura máxima do container */
+  cursor: pointer;
+  display: block;
 }
+
+.nome-produto.expandido {
+  white-space: normal;
+  overflow: visible;
+}
+
 
 .produto p {
   color: #B0956D;
@@ -155,7 +167,7 @@ a{
   font-size: 16px;
   border-radius: 5px;
   padding: 10px 5px;
-
+  cursor: pointer;
 }
 
 .btn-add-sacola:hover{

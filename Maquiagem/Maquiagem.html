@@ -12,58 +12,88 @@
   <title>Maquiagem</title>
 </head>
 <body>
+
+    <header class="header">
+        <button class="menu-btn" onclick="alternarSidebar()">☰</button>
+        <nav class="sidebar" id="sidebar">
+          <a class="btn" href="../TelaInicial/tela-Inicial.html">Início</a>
+          <a class="btn" href="../PerfMasculino/PerfMasculino.html">Perfumes/M</a>
+          <a class="btn" href="../PerfFeminino/PerfFeminino.html">Perfumes/F</a>
+          <a class="btn" href="../Maquiagem/Maquiagem.html">Maquiagem</a>
+          <a class="btn" href="../Hidratantes/Hidratantes.html">Hidratante</a>
+
+        </nav>
+        <a class="carrinho" href="../Carrinho/Carrinho.html"></a>
+    </header>
+
+    <h1 class="titulo">Maquiagem</h1>
     
     <div class="container">
 
-        <div class="top-bar"></div>
 
-        <h1 class="titulo">Maquiagem</h1>
-
-        <div class="produtos-grid">
-            <div class="produto">
-                <img src="images/Maquiagem1.png" alt="Maquiagem 1">
-                <h2>Maquiagem 1</h2>
-                <p>R$ 129,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Maquiagem2.png" alt="Maquiagem 2">
-                <h2>Maquiagem 2</h2>
-                <p>R$ 149,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Maquiagem3.png" alt="Maquiagem 3">
-                <h2>Maquiagem 3</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Maquiagem4.png" alt="Maquiagem 4">
-                <h2>Maquiagem 4</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Maquiagem5.png" alt="Maquiagem 5">
-                <h2>Maquiagem 5</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Maquiagem6.png" alt="Maquiagem 6">
-                <h2>Maquiagem 6</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Maquiagem7.png" alt="Maquiagem 7">
-                <h2>Maquiagem 7</h2>
-                <p>R$ 99,90</p>
-            </div>
-            <div class="produto">
-                <img src="images/Maquiagem8.png" alt="Maquiagem 8">
-                <h2>Maquiagem 8</h2>
-                <p>R$ 99,90</p>
-            </div>
+        <section class="produtos-grid">
+            <article class="produto">
+                <img src="images/Maquiagem1.png" alt="Batom Multimix Cremoso Faces">
+                <h2 class="nome-produto">Batom Multimix Cremoso Faces</h2>
+                <p>R$ 30,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Maquiagem2.png" alt="Batom Multimix Cremoso Faces">
+                <h2 class="nome-produto">Batom Multimix Cremoso Faces</h2>
+                <p>R$ 30,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Maquiagem3.png" alt="Gloss labial FPS 15 Una">
+                <h2 class="nome-produto">Gloss labial FPS 15 Una</h2>
+                <p>R$ 30,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Maquiagem4.png" alt="Batom Matte Intransferível Una ">
+                <h2 class="nome-produto">Batom Matte Intransferível Una </h2>
+                <p>R$ 30,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Maquiagem5.png" alt="Máscara para Cílios Volume Magnífico Lavável Una">
+                <h2 class="nome-produto">Máscara para Cílios Volume Magnífico Lavável Una</h2>
+                <p>R$ 30,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Maquiagem6.png" alt="Delineador Matte Peel Off Una">
+                <h2 class="nome-produto">Delineador Matte Peel Off Una</h2>
+                <p>R$ 30,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Maquiagem7.png" alt="Base Fluida HD Una">
+                <h2 class="nome-produto">Base Fluida HD Una</h2>
+                <p>R$ 30,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
+            <article class="produto">
+                <img src="images/Maquiagem8.png" alt="Blush Color Faces">
+                <h2 class="nome-produto">Blush Color Faces</h2>
+                <p>R$ 30,90</p>
+                <button class="btn-add-sacola">Adicionar a sacola</button>
+            </article>
         
-        </div>
+        </section>
     </div>
 
+
+    <script src="../TelaInicial/sidebar.js"></script>
+
+    <script>
+        document.querySelectorAll('.nome-produto').forEach(el => {
+            el.addEventListener('click', () => {
+            el.classList.toggle('expandido');
+            });
+        });
+    </script>
 
 </body>
 </html>

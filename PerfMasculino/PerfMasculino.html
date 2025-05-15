@@ -18,13 +18,13 @@
         <nav class="sidebar" id="sidebar">
           <a class="btn" href="../TelaInicial/tela-Inicial.html">Início</a>
           <a class="btn" href="../PerfMasculino/PerfMasculino.html">Perfumes/M</a>
-          <a class="btn" href="../PerfMasculino/PerfMasculino.html">Perfumes/F</a>
+          <a class="btn" href="../PerfFeminino/PerfFeminino.html">Perfumes/F</a>
           <a class="btn" href="../Maquiagem/Maquiagem.html">Maquiagem</a>
-          <a class="btn" href="#">Hidratante</a>
-          <a href="" role="button" data-bs-toogle="dropdown" aria-expanded="false">masculino</a>
+          <a class="btn" href="../Hidratantes/Hidratantes.html">Hidratante</a>
+          
         </nav>
-        <a class="carrinho" href="#"></a>
-      </header>
+        <a class="carrinho" href="../Carrinho/Carrinho.html"></a>
+    </header>
       
       <h1 class="titulo">Perfumes Masculino</h1>
 
@@ -32,73 +32,70 @@
 
 
 
-        <div class="produtos-grid">
-            <div class="produto">
-                <img src="images/perfume1.png" alt="Perfume 1">
-                <h2>Perfume 1</h2>
-                <p>R$ 129,90</p>
-                <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume2.png" alt="Perfume 2">
-                <h2>Perfume 2</h2>
+        <section class="produtos-grid">
+            <article class="produto">
+                <img src="images/perfume1.png" alt="Essencial Masculino 100ml">
+                <h2 class="nome-produto">Essencial Masculino 100ml</h2>
                 <p>R$ 149,90</p>
                 <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume3.png" alt="Perfume 3">
-                <h2>Perfume 3</h2>
-                <p>R$ 99,90</p>
+            </article>
+            <article class="produto">
+                <img src="images/perfume2.png" alt="Essencial Exclusivo Masculino">
+                <h2 class="nome-produto">Essencial Exclusivo Masculino</h2>
+                <p>R$ 149,90</p>
                 <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume4.png" alt="Perfume 4">
-                <h2>Perfume 4</h2>
-                <p>R$ 99,90</p>
+            </article>
+            <article class="produto">
+                <img src="images/perfume3.png" alt="Kaiak Aero Masculino ">
+                <h2 class="nome-produto">Kaiak Aero Masculino </h2>
+                <p>R$ 149,90</p>
                 <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume5.png" alt="Perfume 5">
-                <h2>Perfume 5</h2>
-                <p>R$ 99,90</p>
+            </article>
+            <article class="produto">
+                <img src="images/perfume4.png" alt="Natura Homem Neo Deo Parfum">
+                <h2 class="nome-produto">Natura Homem Neo Deo Parfum</h2>
+                <p>R$ 149,90</p>
                 <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume6.png" alt="Perfume 6">
-                <h2>Perfume 6</h2>
-                <p>R$ 99,90</p>
+            </article>
+            <article class="produto">
+                <img src="images/perfume5.png" alt="Paz e Humor Masculino ">
+                <h2 class="nome-produto">Paz e Humor Masculino </h2>
+                <p>R$ 149,90</p>
                 <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume7.png" alt="Perfume 7">
-                <h2>Perfume 7</h2>
-                <p>R$ 99,90</p>
+            </article>
+            <article class="produto">
+                <img src="images/perfume6.png" alt="Essencial Supreme Masculino">
+                <h2 class="nome-produto">Essencial Supreme Masculino</h2>
+                <p>R$ 149,90</p>
                 <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume8.png" alt="Perfume 8">
-                <h2>Perfume 8</h2>
-                <p>R$ 99,90</p>
+            </article>
+            <article class="produto">
+                <img src="images/perfume7.png" alt="Química de Humor Masculino">
+                <h2 class="nome-produto">Química de Humor Masculino</h2>
+                <p>R$ 149,90</p>
                 <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume8.png" alt="Perfume 8">
-                <h2>Perfume 8</h2>
-                <p>R$ 99,90</p>
+            </article>
+            <article class="produto">
+                <img src="images/perfume8.png" alt="Kaiak Masculino">
+                <h2 class="nome-produto">Kaiak Masculino</h2>
+                <p>R$ 149,90</p>
                 <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
-            <div class="produto">
-                <img src="images/perfume8.png" alt="Perfume 8">
-                <h2>Perfume 8</h2>
-                <p>R$ 99,90</p>
-                <button class="btn-add-sacola">Adicionar a sacola</button>
-            </div>
+            </article>
+            
         
-        </div>
+        </section>
 
     </div>
 
     <script src="../TelaInicial/sidebar.js"></script>
+
+    <script>
+        document.querySelectorAll('.nome-produto').forEach(el => {
+            el.addEventListener('click', () => {
+            el.classList.toggle('expandido');
+            });
+        });
+    </script>
 
 </body>
 </html>
