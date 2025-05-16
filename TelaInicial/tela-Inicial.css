@@ -191,14 +191,14 @@ a{
   align-items: center;
   justify-content: space-evenly;
   position: absolute;
-  background-color: #6d8cb04f;
+  background-color: #ffffff3d;
   width: 250px;
   height: 120px;
-  border: 1px solid;
   flex-direction: column;
   margin-left: 50%;
   margin-top: 15%;
   font-size: large;
+  border-radius: 10px;
 }
 
 .btn-carrossel-carrinho {
