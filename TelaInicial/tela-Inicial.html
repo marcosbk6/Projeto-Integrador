@@ -34,10 +34,25 @@
   
       <button class="seta esquerda" onclick="rolarCarrossel(-1)">❮</button>
   
-      <div class="carrossel" id="carrossel"> 
-        <article class="card"><img src="./images/destaq-Kaiak.png" alt="Kaiak"></article>
-        <article class="card"><img src="./images/destaq-Llía.png" alt="Llía"></article>
-      </div>
+      <section class="carrossel" id="carrossel">
+        <div class="card">
+          <img src="./images/destaq-Kaiak.png" alt="Kaiak">
+          <div class="descricao-carrossel">
+            <h2>Kaiak AERO</h2>
+            <p>R$200</p>
+            <button class="btn-carrossel-carrinho">Adicionar a sacola</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/destaq-Llía.png" alt="Ilía">
+          <div class="descricao-carrossel">
+            <h2>Ilía Laços</h2>
+            <p>R$180</p>
+            <button class="btn-carrossel-carrinho">Adicionar a sacola</button>
+          </div>
+        </div>
+</section>
+
   
       <button class="seta direita" onclick="rolarCarrossel(1)">❯</button>
   
@@ -85,5 +100,35 @@
       });
 
     </script>
+
+
+<!-- descricao carrossel -->
+<script> 
+  const carrossel = document.getElementById('carrossel');
+  const cards = carrossel.querySelectorAll('.card');
+  let slideAtual = 0;
+
+  function atualizarBotoes() {
+    cards.forEach((card, index) => {
+      const botao = card.querySelector('.descricao-carrossel');
+      botao.style.display = index === slideAtual ? 'flex' : 'none';
+    });
+  }
+
+  function rolarCarrossel(direcao) {
+    slideAtual += direcao;
+
+    if (slideAtual < 0) slideAtual = cards.length - 1;
+    if (slideAtual >= cards.length) slideAtual = 0;
+
+    cards[slideAtual].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+    atualizarBotoes();
+  }
+
+  // Inicializa botão do primeiro slide
+  document.addEventListener('DOMContentLoaded', atualizarBotoes);
+</script>
+
+
 
 </html>

@@ -132,12 +132,6 @@ a{
     display: block;
   }
 
-  .dropbtn {
-    width: 200px;
-    display: flex;
-    justify-content: flex-start;
-  }
-
   
 }
 
@@ -170,6 +164,7 @@ a{
   cursor: pointer;
   color: black;
   border-radius: 50%;
+  z-index: 1;
 }
 
 .seta.esquerda {
@@ -191,8 +186,39 @@ a{
 
 }
 
+.descricao-carrossel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  background-color: #6d8cb04f;
+  width: 250px;
+  height: 120px;
+  border: 1px solid;
+  flex-direction: column;
+  margin-left: 50%;
+  margin-top: 15%;
+  font-size: large;
+}
+
+.btn-carrossel-carrinho {
+  appearance: none;
+  border: none;
+  width: 90%;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 10px 5px;
+
+}
+
+.btn-carrossel-carrinho:hover{
+  background-color: #B0956D;
+  color: white;
+}
 
 .card{
+  position: relative;
+  flex: 0 0 100%;
   display: flex;
   align-items: center;
   justify-content: center;

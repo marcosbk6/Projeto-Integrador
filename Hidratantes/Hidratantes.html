@@ -14,16 +14,22 @@
 <body>
 
     <header class="header">
-        <button class="menu-btn" onclick="alternarSidebar()">☰</button>
-        <nav class="sidebar" id="sidebar">
-          <a class="btn" href="../TelaInicial/tela-Inicial.html">Início</a>
-          <a class="btn" href="../PerfMasculino/PerfMasculino.html">Perfumes/M</a>
-          <a class="btn" href="../PerfFeminino/PerfFeminino.html">Perfumes/F</a>
-          <a class="btn" href="../Maquiagem/Maquiagem.html">Maquiagem</a>
-          <a class="btn" href="../Hidratantes/Hidratantes.html">Hidratante</a>
+      <button class="menu-btn" onclick="alternarSidebar()">☰</button>
+      <nav class="sidebar" id="sidebar">
+        <a class="btn" href="../TelaInicial/tela-Inicial.html">Início</a>
 
-        </nav>
-        <a class="carrinho" href="../Carrinho/Carrinho.html"></a>
+        <div class="dropdown">
+          <button class="dropbtn">Perfumes</button>
+          <div class="dropdown-content">
+            <a href="../PerfFeminino/PerfFeminino.html">Feminino</a>
+            <a href="../PerfMasculino/PerfMasculino.html">Masculino</a>
+        </div>
+        </div>
+
+        <a class="btn" href="../Maquiagem/Maquiagem.html">Maquiagem</a>
+        <a class="btn" href="../Hidratantes/Hidratantes.html">Hidratante</a>
+      </nav>
+      <a class="carrinho" href="../Carrinho/Carrinho.html"></a>
     </header>
 
     <h1 class="titulo">Hidradantes</h1>
