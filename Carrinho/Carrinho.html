@@ -38,12 +38,14 @@
     
     <section class="produtos-grid">
       <article class="produto">
+        <button class="close-card">&times;</button>
         <div class="produto-info">
           <h2>Essencial Masculino 100ml</h2>
           <p class="preco">R$ 129,90</p>
         </div>
       </article> 
       <article class="produto">
+        <button class="close-card">&times;</button>
         <div class="produto-info">
           <h2>Essencial Masculino 100ml</h2>
           <p class="preco">R$ 129,90</p>
@@ -51,6 +53,7 @@
       </article> 
       
       <article class="produto">
+        <button class="close-card">&times;</button>
         <div class="produto-info"> 
           <h2>Creme para o Corpo Tododia Amora Vermelha e Jabuticaba</h2>
           <p class="preco">R$ 99,90</p>
@@ -58,6 +61,7 @@
       </article> 
 
       <article class="produto">
+        <button class="close-card">&times;</button>
         <div class="produto-info"> 
           <h2>Creme para o Corpo Tododia Amora Vermelha e Jabuticaba</h2>
           <p class="preco">R$ 99,90</p>
@@ -65,6 +69,7 @@
       </article> 
 
       <article class="produto">
+        <button class="close-card">&times;</button>
         <div class="produto-info"> 
           <h2>Creme para o Corpo Tododia Amora Vermelha e Jabuticaba</h2>
           <p class="preco">R$ 99,90</p>
@@ -78,31 +83,56 @@
       Total: R$ 129,90
     </div>
 
+    <div class="botao-carrinho">
+      <button class="confirmar-pedido">Confirmar Pedido</button>
+      <button class="cancelar-pedido">Cancelar Pedido</button>
+    </div>
+
+
+
+
   </div>
 
 
   <script src="../TelaInicial/sidebar.js"></script>
 
   <script>
-  function calcularTotal() {
-    const precos = document.querySelectorAll('.preco');
-    let total = 0;
-
-    precos.forEach(p => {
-      const texto = p.textContent.replace('R$', '').replace(',', '.').trim();
-      const valor = parseFloat(texto);
-      if (!isNaN(valor)) {
-        total += valor;
-      }
+    document.querySelectorAll('.close-card').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.remove();
+      });
     });
+  </script>
 
-    const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    document.querySelector('.total').textContent = 'Total: ' + totalFormatado;
-  }
 
-  // Chama a função ao carregar a página
-  window.addEventListener('DOMContentLoaded', calcularTotal);
-</script>
+  <script>
+    function calcularTotal() {
+      const precos = document.querySelectorAll('.preco');
+      let total = 0;
+
+      precos.forEach(p => {
+        const texto = p.textContent.replace('R$', '').replace(',', '.').trim();
+        const valor = parseFloat(texto);
+        if (!isNaN(valor)) {
+          total += valor;
+        }
+      });
+
+      const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      document.querySelector('.total').textContent = 'Total: ' + totalFormatado;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcularTotal();
+
+      document.querySelectorAll('.close-card').forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.parentElement.remove();
+          calcularTotal(); // <- importante!
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
