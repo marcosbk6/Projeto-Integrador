@@ -1,0 +1,18 @@
+body {
+   background-color:#B0956D;
+}
+.qrcode{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.chavepix{
+    font-size: small;
+}

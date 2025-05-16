@@ -132,7 +132,7 @@ a{
     left: 0;
     width: 200px;
     background-color: #cec0a0b2;
-    z-index: 1;
+    z-index: 2;
   }
 
   .sidebar.show {
@@ -143,24 +143,10 @@ a{
     display: block;
   }
 
-  
-}
-
-.container{
-  display: flex;
-  justify-content: center;
-}
+  .dropbtn {
     width: 200px;
-    background-color: #cec0a0b2;
-    z-index: 1;
-  }
-
-  .sidebar.show {
     display: flex;
-  }
-
-  .menu-btn {
-    display: block;
+    justify-content: flex-start;
   }
 
   
@@ -170,17 +156,9 @@ a{
   display: flex;
   justify-content: center;
 }
+
 
 .titulo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15px auto;
-  width: 1000px;
-  height: 50px;
-  background-color: #EBE6D9;
-  border-radius: 7px;
-  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +173,6 @@ a{
 .produtos-grid {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   padding: 20px;
@@ -222,7 +199,6 @@ a{
 }
 
 .nome-produto {
-.nome-produto {
   margin: 10px 0 5px;
   font-size: 1.1rem;
   color: #333;
@@ -237,18 +213,8 @@ a{
 .nome-produto.expandido {
   white-space: normal;
   overflow: visible;
-  white-space: nowrap;        /* Impede que o texto quebre para a próxima linha */
-  overflow: hidden;           /* Esconde o texto que ultrapassa o limite do container */
-  text-overflow: ellipsis;    /* Adiciona os 3 pontinhos (...) */
-  max-width: 150px;           /* Define a largura máxima do container */
-  cursor: pointer;
-  display: block;
 }
 
-.nome-produto.expandido {
-  white-space: normal;
-  overflow: visible;
-}
 
 .produto p {
   color: #B0956D;
@@ -272,28 +238,9 @@ a{
   padding: 0 0 2px 0;
 }
 
-.btn-add-sacola {
-  appearance: none;
-  border: none;
-  width: 147.5px;
-  font-size: 16px;
-  border-radius: 5px;
-  padding: 10px 5px;
-  cursor: pointer;  
-}
-
-.btn-add-sacola:hover{
-  background-color: #B0956D;
-  color: white;
-}
 
 
 @media (max-width: 768px) {
-
-  .titulo {
-    width: 670px;
-  }
-
 
   .titulo {
     width: 670px;
@@ -319,10 +266,6 @@ a{
 
 @media (max-width: 480px) {
 
-  .titulo {
-    width: 400px;
-  }
-
 
   .titulo {
     width: 400px;
@@ -344,7 +287,7 @@ a{
 
   .produto:hover {
   transform: scale(1.05);
-}
+  }
 
 }
 
@@ -352,16 +295,6 @@ a{
   .titulo {
     width: 360px;
   }
-  
-  
-
-}
-
-@media (max-width: 375px) {
-  .titulo {
-    width: 360px;
-  }
-  
   
 }
 

@@ -9,16 +9,10 @@
   font-variation-settings: "wdth" 100;
   }
 
-  
-* {
-  margin:0;
-  padding:0;
-  box-sizing: border-box;  
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
+  .qrcode{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   
@@ -184,7 +178,7 @@ a{
     left: 0;
     width: 200px;
     background-color: #cec0a0b2;
-    z-index: 1;
+    z-index: 2;
   }
 
   .sidebar.show {
@@ -202,6 +196,7 @@ a{
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .total {
