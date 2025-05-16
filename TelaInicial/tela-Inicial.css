@@ -225,6 +225,7 @@ a{
   background-image: -moz-linear-gradient(-450px);
   scroll-snap-align:center;
   width: 100%;
+  width: 100%;
   height: 730px;
 }
 
@@ -256,6 +257,9 @@ a{
   padding: 10px 0 10px 0;
   gap: 10px;
   
+  padding: 10px 0 10px 0;
+  gap: 10px;
+  
 }
 
 .produto {
@@ -265,8 +269,13 @@ a{
   align-items: center;
   width: 95%;
   height: auto;
+  width: 95%;
+  height: auto;
   background-color: #EBE6D9;
   border-radius: 10px;
+  padding: 20px 0 20px 0;
+  
+   
   padding: 20px 0 20px 0;
   
    
@@ -277,13 +286,16 @@ a{
   overflow: hidden;
   text-overflow: ellipsis;
   width: 300px;
+  width: 300px;
   height: 20px;
   padding: 7px 0;
   font-size: 15px;
   text-align: center;
+  text-align: center;
 }
 
 .produto img{
+  width: 300px;
   width: 300px;
   height: 300px;
   border-radius: 10px;
@@ -293,11 +305,14 @@ a{
   display: flex;
   align-items: center;
   margin-bottom: 8px;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
 .btn-add-sacola {
   appearance: none;
   border: none;
+  width: 90%;
   width: 90%;
   font-size: 17px;
   border-radius: 5px;
@@ -458,6 +473,7 @@ a{
   
   .produto {
     width: 90%;
+    width: 90%;
     height: 275px;
   }
 
@@ -520,6 +536,7 @@ a{
   
   .produto {
     width: 90%;
+    width: 90%;
     height: 220px;  
   }
 
@@ -579,6 +596,7 @@ a{
   }
   
   .produto {
+    width: 90%;
     width: 90%;
     height: 200px; 
   }

@@ -21,6 +21,14 @@ body {
   color: white;
   padding: 10px;
   position: relative;
+  align-items: center;
+}
+
+.header {
+  background-color: #CEC0A0;
+  color: white;
+  padding: 10px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -142,8 +150,37 @@ a{
   display: flex;
   justify-content: center;
 }
+    width: 200px;
+    background-color: #cec0a0b2;
+    z-index: 1;
+  }
+
+  .sidebar.show {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
 
 .titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px auto;
+  width: 1000px;
+  height: 50px;
+  background-color: #EBE6D9;
+  border-radius: 7px;
+  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,6 +196,7 @@ a{
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   padding: 20px;
   max-width: 1000px;
@@ -171,6 +209,7 @@ a{
   text-align: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: transform 0.2s;
+  
   
 }
 
@@ -185,9 +224,21 @@ a{
 }
 
 .nome-produto {
+.nome-produto {
   margin: 10px 0 5px;
   font-size: 1.1rem;
   color: #333;
+  white-space: nowrap;        /* Impede que o texto quebre para a próxima linha */
+  overflow: hidden;           /* Esconde o texto que ultrapassa o limite do container */
+  text-overflow: ellipsis;    /* Adiciona os 3 pontinhos (...) */
+  max-width: 150px;           /* Define a largura máxima do container */
+  cursor: pointer;
+  display: block;
+}
+
+.nome-produto.expandido {
+  white-space: normal;
+  overflow: visible;
   white-space: nowrap;        /* Impede que o texto quebre para a próxima linha */
   overflow: hidden;           /* Esconde o texto que ultrapassa o limite do container */
   text-overflow: ellipsis;    /* Adiciona os 3 pontinhos (...) */
@@ -220,10 +271,31 @@ a{
 .btn-add-sacola:hover{
   background-color: #B0956D;
   color: white;
+  padding: 0 0 2px 0;
+}
+
+.btn-add-sacola {
+  appearance: none;
+  border: none;
+  width: 147.5px;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 10px 5px;
+  cursor: pointer;  
+}
+
+.btn-add-sacola:hover{
+  background-color: #B0956D;
+  color: white;
 }
 
 
 @media (max-width: 768px) {
+
+  .titulo {
+    width: 670px;
+  }
+
 
   .titulo {
     width: 670px;
@@ -253,6 +325,11 @@ a{
     width: 400px;
   }
 
+
+  .titulo {
+    width: 400px;
+  }
+
   .produtos-grid {
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
@@ -270,6 +347,15 @@ a{
   .produto:hover {
   transform: scale(1.05);
 }
+
+}
+
+@media (max-width: 375px) {
+  .titulo {
+    width: 360px;
+  }
+  
+  
 
 }
 
