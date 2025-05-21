@@ -9,12 +9,6 @@
   font-variation-settings: "wdth" 100;
   }
 
-  .qrcode{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   
 body {
   min-height: 100vh;

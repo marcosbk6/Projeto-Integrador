@@ -31,10 +31,10 @@
             </div>
             <div class="btn">
                 <!-- <button id="btnEntrar"> so funciona se o backend estiver ligado -->
-                <button onclick="window.location.href='./TelaInicial/Tela-Inicial.html'">
+                <button id="btnEntrar">
                     ENTRAR 
                 </button>
-                <button>
+                <button id="btnCriar">
                     CRIAR
                 </button>
             </div>
@@ -48,6 +48,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Selecionando os campos de login e senha
             const btnEntrar = document.getElementById('btnEntrar');
+            const btnCriar = document.getElementById('btnCriar');
             const inputUsername = document.querySelector('.input[placeholder="Login"]');
             const inputSenha = document.querySelector('.input[placeholder="Senha"]');
     
@@ -87,6 +88,38 @@
                     alert('Erro ao tentar realizar o login.');
                 }
             });
+        
+
+            btnCriar.addEventListener('click', async () => {
+                const username = inputUsername.value.trim();
+                const senha = inputSenha.value.trim();
+
+                if (!username || !senha) {
+                    alert('Prencha todos os campos');
+                    return;
+                }
+                try {
+                    const response = await fetch('http://localhost:3000/cadastro', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({username, senha}),
+                    });
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert(data.message);
+                    }else {
+                        alert(data.message);
+                    }
+                    
+                } catch (error) {
+                    console.error('Erro ao fazer cadastro:', error);
+                    alert('Erro ao tentar cadastrar.');
+                }
+            });
+
         });
     </script>
       
