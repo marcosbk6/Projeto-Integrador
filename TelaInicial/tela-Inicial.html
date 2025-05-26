@@ -34,24 +34,7 @@
   
       <button class="seta esquerda" onclick="rolarCarrossel(-1)">❮</button>
   
-      <section class="carrossel" id="carrossel">
-        <div class="card">
-          <img src="./images/destaq-Kaiak.png" alt="Kaiak">
-          <div class="descricao-carrossel">
-            <h2>Kaiak AERO Masculino</h2>
-            <p>R$200</p>
-            <button class="btn-carrossel-carrinho">Adicionar a sacola</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/destaq-Llía.png" alt="Ilía">
-          <div class="descricao-carrossel">
-            <h2>Ilía Laços Feminino</h2>
-            <p>R$180</p>
-            <button class="btn-carrossel-carrinho">Adicionar a sacola</button>
-          </div>
-        </div>
-</section>
+      <section class="carrossel" id="carrossel"></section>
 
   
       <button class="seta direita" onclick="rolarCarrossel(1)">❯</button>
@@ -66,6 +49,7 @@
   
     <script src="sidebar.js"></script>
     <script type="module" src="carregaDestaques.js"></script>
+    <script type="module" src="carregaCarrossel.js"></script>
 
 
 <!-- descricao carrossel -->
@@ -75,13 +59,15 @@
   let slideAtual = 0;
 
   function atualizarBotoes() {
-    cards.forEach((card, index) => {
-      const botao = card.querySelector('.descricao-carrossel');
-      botao.style.display = index === slideAtual ? 'flex' : 'none';
-    });
-  }
+  const cards = carrossel.querySelectorAll('.card'); // atualiza lista aqui também
+  cards.forEach((card, index) => {
+    const botao = card.querySelector('.descricao-carrossel');
+    botao.style.display = index === slideAtual ? 'flex' : 'none';
+  });
+}
 
   function rolarCarrossel(direcao) {
+    const cards = carrossel.querySelectorAll('.card');
     slideAtual += direcao;
 
     if (slideAtual < 0) slideAtual = cards.length - 1;
