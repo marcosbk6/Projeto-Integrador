@@ -23,13 +23,13 @@ fetch('http://localhost:3000/produtos')
     const container = document.querySelector('.produtos-destaque');
 
     destaques.forEach(produto => {
-      const card = document.createElement('div');
+      const card = document.createElement('article');
       card.classList.add('produto');
 
       card.innerHTML = `
         <img src="${produto.imagem}" alt="${produto.nome}">
-        <h2 class="nome-produto">${produto.nome}</h2>
-        <p>R$${produto.preco.toFixed(2)}</p>
+        <h3 class="descricao-produto">${produto.nome}</h3>
+        <h4 class="preco-produto">R$${produto.preco.toFixed(2)}</h4>
         <button class="btn-add-sacola">Adicionar à sacola</button>
       `;
 
