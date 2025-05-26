@@ -38,7 +38,7 @@
         <div class="card">
           <img src="./images/destaq-Kaiak.png" alt="Kaiak">
           <div class="descricao-carrossel">
-            <h2>Kaiak AERO</h2>
+            <h2>Kaiak AERO Masculino</h2>
             <p>R$200</p>
             <button class="btn-carrossel-carrinho">Adicionar a sacola</button>
           </div>
@@ -46,7 +46,7 @@
         <div class="card">
           <img src="./images/destaq-Llía.png" alt="Ilía">
           <div class="descricao-carrossel">
-            <h2>Ilía Laços</h2>
+            <h2>Ilía Laços Feminino</h2>
             <p>R$180</p>
             <button class="btn-carrossel-carrinho">Adicionar a sacola</button>
           </div>
@@ -93,14 +93,7 @@
     
   
     <script src="sidebar.js"></script>
-    <script>
-      document.querySelectorAll('.descricao-produto').forEach(item => {
-        item.addEventListener('click', () => {
-          item.classList.toggle('expandido');
-        });
-      });
-
-    </script>
+    <script type="module" src="carregaDestaques.js"></script>
 
 
 <!-- descricao carrossel -->
