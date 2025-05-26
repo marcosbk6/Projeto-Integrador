@@ -201,6 +201,10 @@ a{
   border-radius: 10px;
 }
 
+.descricao-carrossel h2 {
+  font-size: 17px;
+}
+
 .btn-carrossel-carrinho {
   appearance: none;
   border: none;
