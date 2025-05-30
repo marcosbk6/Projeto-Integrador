@@ -1,49 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
   const container = document.querySelector('.carrinho-itens');
   const totalDiv = document.querySelector('.total');
 
-  // Função para atualizar a exibição do carrinho e total
-  function atualizarCarrinho() {
-    container.innerHTML = ''; // Limpa itens antigos
-    let total = 0;
+  async function atualizarCarrinho() {
+    try {
+      const resposta = await fetch('http://localhost:3000/carrinho');
+      const carrinho = await resposta.json();
 
-    carrinho.forEach(item => {
-      const div = document.createElement('article');
-      div.classList.add('produto');
+      container.innerHTML = '';
+      let total = 0;
 
-      div.innerHTML = `
-        <button class="close-card">&times;</button>
-        <div class="produto-info">
-          <h2>${item.nome}</h2>
-          <p class="preco">${item.preco}</p>
-        </div>
-      `;
+      carrinho.forEach((item, index) => {
+        const div = document.createElement('article');
+        div.classList.add('produto');
 
-      container.appendChild(div);
+        div.innerHTML = `
+          <button class="close-card" data-index="${index}">&times;</button>
+          <div class="produto-info">
+            <h2>${item.nome}</h2>
+            <p class="preco">${item.preco}</p>
+          </div>
+        `;
 
-      // Soma o preço do item
-      const precoNum = parseFloat(item.preco.replace('R$', '').replace(',', '.'));
-      total += precoNum;
-    });
+        container.appendChild(div);
 
-    const totalFormatado = total.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    });
-    totalDiv.textContent = `Total: ${totalFormatado}`;
+        const precoNum = parseFloat(item.preco.replace('R$', '').replace(',', '.'));
+        total += precoNum;
+      });
+
+      totalDiv.textContent = `Total: ${total.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      })}`;
+    } catch (err) {
+      console.error('Erro ao buscar carrinho:', err);
+    }
   }
 
-  // Chama a função para montar a tela com os itens do carrinho
-  atualizarCarrinho();
-
-  // Evento para remover item ao clicar no botão de fechar
-  container.addEventListener('click', (e) => {
+  // Remover item do carrinho
+  container.addEventListener('click', async (e) => {
     if (e.target.classList.contains('close-card')) {
-      const index = Array.from(container.children).indexOf(e.target.closest('.produto'));
-      carrinho.splice(index, 1);
-      localStorage.setItem('carrinho', JSON.stringify(carrinho));
-      atualizarCarrinho(); // Atualiza a lista e total sem recarregar a página
+      const index = e.target.getAttribute('data-index');
+      try {
+        await fetch(`http://localhost:3000/carrinho/${index}`, {
+          method: 'DELETE',
+        });
+        atualizarCarrinho();
+      } catch (err) {
+        console.error('Erro ao remover item:', err);
+      }
     }
   });
+
+  atualizarCarrinho();
 });

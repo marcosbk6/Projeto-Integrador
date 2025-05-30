@@ -6,29 +6,21 @@ export default function configurarBotoesCarrinho() {
 function handleClick(e) {
   if (e.target.classList.contains('btn-add-sacola')) {
     const card = e.target.closest('.card, .produto');
-    
-    if (!card) {
-      console.warn('Elemento pai (.card ou .produto) não encontrado para o botão clicado:', e.target);
-      return; // sai da função para não dar erro
-    }
-
-    const nomeElem = card.querySelector('h2');
-    const precoElem = card.querySelector('p');
-
-    if (!nomeElem || !precoElem) {
-      console.warn('Elemento nome ou preço não encontrado no card:', card);
-      return;
-    }
-
-    const nome = nomeElem.innerText;
-    const preco = precoElem.innerText;
+    const nome = card.querySelector('h2').innerText;
+    const preco = card.querySelector('p').innerText;
 
     const produto = { nome, preco };
 
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    carrinho.push(produto);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-    alert('Produto adicionado à sacola!');
+    fetch('http://localhost:3000/carrinho', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(produto)
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('Erro ao adicionar produto ao carrinho');
+      alert('Produto adicionado à sacola!');
+    })
+    .catch(err => console.error(err));
   }
 }
+
