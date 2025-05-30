@@ -151,7 +151,7 @@ a{
 
 }
 
-.container-perfumes{
+.container{
   display: flex;
   justify-content: center;
 }
@@ -227,13 +227,12 @@ a{
   font-size: 16px;
   border-radius: 5px;
   padding: 10px 5px;
-
+  cursor: pointer;
 }
 
 .btn-add-sacola:hover{
   background-color: #B0956D;
   color: white;
-  padding: 0 0 2px 0;
 }
 
 

@@ -1,4 +1,5 @@
 import criarProdutoHTML from '../criarProdutoHTML.js';  // caminho relativo, ajuste conforme sua estrutura
+import configurarBotoesCarrinho from '../adicionaAoCarrinho.js';
 
 async function carregarPerfumesMasculinos() {
   try {
@@ -14,6 +15,7 @@ async function carregarPerfumesMasculinos() {
         });
     });
     
+    configurarBotoesCarrinho();
   } catch (error) {
     console.error('Erro ao carregar perfumes masculinos:', error);
   }

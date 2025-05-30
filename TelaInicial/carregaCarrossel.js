@@ -1,3 +1,4 @@
+import configurarBotoesCarrinho from '../adicionaAoCarrinho.js';
 async function carregarCarrossel() {
   try {
     const resposta = await fetch('http://localhost:3000/produtos');
@@ -27,7 +28,7 @@ async function carregarCarrossel() {
         <div class="descricao-carrossel">
           <h2>${produto.nome}</h2>
           <p>R$${produto.preco.toFixed(2)}</p>
-          <button class="btn-carrossel-carrinho">Adicionar à sacola</button>
+          <button class="btn-add-sacola" id="btn-add-sacola-carrossel">Adicionar à sacola</button>
         </div>
       `;
 
@@ -40,3 +41,5 @@ async function carregarCarrossel() {
 }
 
 carregarCarrossel();
+
+

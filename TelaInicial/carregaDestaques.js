@@ -1,3 +1,4 @@
+import configurarBotoesCarrinho from '../adicionaAoCarrinho.js';
 // Destaques por nome ou ID
 const destaquesNome = ['Una Senses Deo Parfum 5ml','Creme para Corpo Tododia Framboesa e Pimenta Rosa','Essencial Supreme Masculino','Hidratante Para as Mãos Ekos Maracujá']; // Ex: ids dos perfumes, hidratantes e maquiagens que você quer mostrar
 
@@ -28,8 +29,8 @@ fetch('http://localhost:3000/produtos')
 
       card.innerHTML = `
         <img src="${produto.imagem}" alt="${produto.nome}">
-        <h3 class="descricao-produto">${produto.nome}</h3>
-        <h4 class="preco-produto">R$${produto.preco.toFixed(2)}</h4>
+        <h2 class="descricao-produto">${produto.nome}</h2>
+        <p class="preco-produto">R$${produto.preco.toFixed(2)}</p>
         <button class="btn-add-sacola">Adicionar à sacola</button>
       `;
 

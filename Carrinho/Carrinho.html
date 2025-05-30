@@ -1,134 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="carrinho.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="carrinho.css" />
   <title>Carrinho</title>
 </head>
 <body>
-
   <header class="header">
-      <button class="menu-btn" onclick="alternarSidebar()">☰</button>
-      <nav class="sidebar" id="sidebar">
-        <a class="btn" href="../TelaInicial/tela-Inicial.html">Início</a>
+    <button class="menu-btn" onclick="alternarSidebar()">☰</button>
+    <nav class="sidebar" id="sidebar">
+      <a class="btn" href="../TelaInicial/tela-Inicial.html">Início</a>
 
-        <div class="dropdown">
-          <button class="dropbtn">Perfumes</button>
-          <div class="dropdown-content">
-            <a href="../PerfFeminino/PerfFeminino.html">Feminino</a>
-            <a href="../PerfMasculino/PerfMasculino.html">Masculino</a>
+      <div class="dropdown">
+        <button class="dropbtn">Perfumes</button>
+        <div class="dropdown-content">
+          <a href="../PerfFeminino/PerfFeminino.html">Feminino</a>
+          <a href="../PerfMasculino/PerfMasculino.html">Masculino</a>
         </div>
-        </div>
+      </div>
 
-        <a class="btn" href="../Maquiagem/Maquiagem.html">Maquiagem</a>
-        <a class="btn" href="../Hidratantes/Hidratantes.html">Hidratante</a>
-      </nav>
-      <a class="carrinho" href="../Carrinho/Carrinho.html"></a>
-    </header>
+      <a class="btn" href="../Maquiagem/Maquiagem.html">Maquiagem</a>
+      <a class="btn" href="../Hidratantes/Hidratantes.html">Hidratante</a>
+    </nav>
+    <a class="carrinho" href="../Carrinho/Carrinho.html"></a>
+  </header>
 
   <h1 class="titulo">Carrinho</h1>
 
   <div class="container">
-    
     <section class="produtos-grid">
-      <article class="produto">
-        <button class="close-card">&times;</button>
-        <div class="produto-info">
-          <h2>Essencial Masculino 100ml</h2>
-          <p class="preco">R$ 129,90</p>
-        </div>
-      </article> 
-      <article class="produto">
-        <button class="close-card">&times;</button>
-        <div class="produto-info">
-          <h2>Essencial Masculino 100ml</h2>
-          <p class="preco">R$ 129,90</p>
-        </div>
-      </article> 
-      
-      <article class="produto">
-        <button class="close-card">&times;</button>
-        <div class="produto-info"> 
-          <h2>Creme para o Corpo Tododia Amora Vermelha e Jabuticaba</h2>
-          <p class="preco">R$ 99,90</p>
-        </div>
-      </article> 
-
-      <article class="produto">
-        <button class="close-card">&times;</button>
-        <div class="produto-info"> 
-          <h2>Creme para o Corpo Tododia Amora Vermelha e Jabuticaba</h2>
-          <p class="preco">R$ 99,90</p>
-        </div>
-      </article> 
-
-      <article class="produto">
-        <button class="close-card">&times;</button>
-        <div class="produto-info"> 
-          <h2>Creme para o Corpo Tododia Amora Vermelha e Jabuticaba</h2>
-          <p class="preco">R$ 99,90</p>
-        </div>
-      </article> 
-
-      
+      <div class="carrinho-itens"></div>
     </section>
 
     <div class="total">
-      Total: R$ 129,90
+      Total: R$ 0,00
     </div>
 
     <div class="botao-carrinho">
       <button class="confirmar-pedido" onclick="window.location.href='./pix.html'">Confirmar Pedido</button>
-      <button class="cancelar-pedido" >Cancelar Pedido</button>
+      <button class="cancelar-pedido" onclick="localStorage.removeItem('carrinho'); location.reload();">Cancelar Pedido</button>
     </div>
   </div>
 
-
   <script src="../TelaInicial/sidebar.js"></script>
-
-  <script>
-    document.querySelectorAll('.close-card').forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.parentElement.remove();
-      });
-    });
-  </script>
-
-
-  <script>
-    function calcularTotal() {
-      const precos = document.querySelectorAll('.preco');
-      let total = 0;
-
-      precos.forEach(p => {
-        const texto = p.textContent.replace('R$', '').replace(',', '.').trim();
-        const valor = parseFloat(texto);
-        if (!isNaN(valor)) {
-          total += valor;
-        }
-      });
-
-      const totalFormatado = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-      document.querySelector('.total').textContent = 'Total: ' + totalFormatado;
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      calcularTotal();
-
-      document.querySelectorAll('.close-card').forEach(btn => {
-        btn.addEventListener('click', () => {
-          btn.parentElement.remove();
-          calcularTotal(); // <- importante!
-        });
-      });
-    });
-  </script>
-
+  <script src="carrinho.js"></script>
 </body>
 </html>

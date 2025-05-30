@@ -50,7 +50,13 @@
     <script src="sidebar.js"></script>
     <script type="module" src="carregaDestaques.js"></script>
     <script type="module" src="carregaCarrossel.js"></script>
+    <script type="module">
+      import configurarBotoesCarrinho  from '../adicionaAoCarrinho.js';
 
+      document.addEventListener('DOMContentLoaded', () => {
+        configurarBotoesCarrinho();
+      });
+    </script>
 
 <!-- descricao carrossel -->
 <script> 
