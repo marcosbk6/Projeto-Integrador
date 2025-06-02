@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tela-Inicial.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <header class="header">
+      <button class="menu-btn" onclick="alternarSidebar()">☰</button>
+      <nav class="sidebar" id="sidebar">
+        <a class="btn" href="../TelaInicial/tela-Inicial.html">Início</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">Perfumes</button>
+          <div class="dropdown-content">
+            <a href="../PerfFeminino/PerfFeminino.html">Feminino</a>
+            <a href="../PerfMasculino/PerfMasculino.html">Masculino</a>
+        </div>
+        </div>
+
+        <a class="btn" href="../Maquiagem/Maquiagem.html">Maquiagem</a>
+        <a class="btn" href="../Hidratantes/Hidratantes.html">Hidratante</a>
+      </nav>
+      <a class="carrinho" href="../Carrinho/Carrinho.html"></a>
+    </header>
+  
+    <div class="container">
+  
+      <button class="seta esquerda" onclick="rolarCarrossel(-1)">❮</button>
+  
+      <section class="carrossel" id="carrossel"></section>
+
+  
+      <button class="seta direita" onclick="rolarCarrossel(1)">❯</button>
+  
+    </div>
+
+    <h1 class="titulo">Produtos em destaque</h1>
+
+    <section class="produtos-destaque"></section>
+
+    
+  
+    <script src="sidebar.js"></script>
+    <script type="module" src="carregaDestaques.js"></script>
+    <script type="module" src="carregaCarrossel.js"></script>
+    <script type="module">
+      import configurarBotoesCarrinho  from '../adicionaAoCarrinho.js';
+
+      document.addEventListener('DOMContentLoaded', () => {
+        configurarBotoesCarrinho();
+      });
+    </script>
+
+<!-- descricao carrossel -->
+<script> 
+  const carrossel = document.getElementById('carrossel');
+  const cards = carrossel.querySelectorAll('.card');
+  let slideAtual = 0;
+
+  function atualizarBotoes() {
+  const cards = carrossel.querySelectorAll('.card'); // atualiza lista aqui também
+  cards.forEach((card, index) => {
+    const botao = card.querySelector('.descricao-carrossel');
+    botao.style.display = index === slideAtual ? 'flex' : 'none';
+  });
+}
+
+  function rolarCarrossel(direcao) {
+    const cards = carrossel.querySelectorAll('.card');
+    slideAtual += direcao;
+
+    if (slideAtual < 0) slideAtual = cards.length - 1;
+    if (slideAtual >= cards.length) slideAtual = 0;
+
+    cards[slideAtual].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+    atualizarBotoes();
+  }
+
+  // Inicializa botão do primeiro slide
+  document.addEventListener('DOMContentLoaded', atualizarBotoes);
+</script>
+
+
+
+</html>

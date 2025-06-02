@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tela-Login.css">
+    <link rel="icon" href="./assets/login-imagens/logo2.png">
+    <title>Document</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="top-bar"></div>
+        <div class="logo-section">
+            <img src="./assets/login-imagens/logo2.png" alt="Logo">
+        </div>
+        <div class="login-box">
+            <div class="login-input">
+                <label for="login"></label>
+                <input type="text" id="login" class="input" placeholder="Login">
+            </div>
+            <div class="login-input">
+                <label for="senha"></label>
+                <input type="password" id="senha" class="input" placeholder="Senha">
+            </div>
+            <div class="btn">
+                <button onclick="fazerLogin()">
+                    ENTRAR 
+                </button>
+                <button onclick="criarConta()">
+                    CRIAR
+                </button>
+            </div>
+        </div>
+
+    </div>  
+
+
+    <script>
+        async function fazerLogin() {
+            const username = document.querySelector('.input[placeholder="Login"]').value;
+            const senha = document.querySelector('.input[placeholder="Senha"]').value;
+            
+            if (!username || !senha) {
+                alert('Por favor, preencha todos os campos');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, senha })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Erro ao fazer login');
+                }
+
+                // Salvar token e informações do usuário
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('username', data.usuario.username);
+                localStorage.setItem('userId', data.usuario._id);
+                
+                // Redirecionar para a tela inicial
+                window.location.href = './TelaInicial/tela-Inicial.html';
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        async function criarConta() {
+            const username = document.querySelector('.input[placeholder="Login"]').value;
+            const senha = document.querySelector('.input[placeholder="Senha"]').value;
+            
+            if (!username || !senha) {
+                alert('Por favor, preencha todos os campos');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/cadastro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, senha })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Erro ao criar conta');
+                }
+
+                alert('Conta criada com sucesso! Faça login para continuar.');
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    </script>
+      
+</body>
+</html>
