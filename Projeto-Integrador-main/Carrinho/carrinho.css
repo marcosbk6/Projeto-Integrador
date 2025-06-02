@@ -92,6 +92,22 @@ a{
   display: block;
 }
 
+.btn-logout{
+  background-color: #ffffff00;
+  color: black;
+  padding: 20px;
+  width: 180px;
+  font-size: 20px;
+  border: none;
+  align-self: flex-start;
+  border-radius: 10px;
+}
+
+.btn-logout:hover{
+  background-color: #ce1b1b;
+  color: white;
+}
+
 .carrinho{
   background-image: url(../assets/icones/icone-carrinho.png);
   background-repeat: no-repeat;
