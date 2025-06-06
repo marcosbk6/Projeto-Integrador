@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Meu E-commerce</title>
+    <link rel="stylesheet" href="css/checkout.css">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Confirmar Pedido</h1>
+        </header>
+
+        <main>
+            <div class="checkout-container">
+                <div class="order-summary">
+                    <h2>Resumo do Pedido</h2>
+                    <div id="items-container">
+                        <!-- Itens do carrinho serão inseridos aqui -->
+                    </div>
+                    <div class="total">
+                        <span>Total:</span>
+                        <span id="total-amount">R$ 0,00</span>
+                    </div>
+                </div>
+
+                <div class="delivery-info">
+                    <h2>Informações de Entrega</h2>
+                    <div id="address-info">
+                        <!-- Informações de entrega serão inseridas aqui -->
+                    </div>
+                </div>
+
+                <div class="payment-section">
+                    <h2>Pagamento</h2>
+                    <div id="payment-button-container">
+                        <!-- Botão do Mercado Pago será inserido aqui -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Verificar autenticação
+            if (!auth.verificarAutenticacao()) {
+                window.location.href = 'tela-Login.html';
+                return;
+            }
+
+            // Carregar dados do localStorage
+            const carrinho = JSON.parse(localStorage.getItem('carrinho'));
+            const dadosEntrega = JSON.parse(localStorage.getItem('dadosEntrega'));
+            const total = parseFloat(localStorage.getItem('totalCompra'));
+
+            if (!carrinho || !dadosEntrega || !total) {
+                window.location.href = 'Carrinho/Carrinho.html';
+                return;
+            }
+
+            // Exibir itens do carrinho
+            const itemsContainer = document.getElementById('items-container');
+            itemsContainer.innerHTML = carrinho.map(item => `
+                <div class="item">
+                    <span>${item.produto.nome}</span>
+                    <span>${item.quantidade}x R$ ${item.produto.preco.toFixed(2)}</span>
+                </div>
+            `).join('');
+
+            // Exibir total
+            document.getElementById('total-amount').textContent = `R$ ${total.toFixed(2)}`;
+
+            // Exibir informações de entrega
+            const addressInfo = document.getElementById('address-info');
+            addressInfo.innerHTML = `
+                <p><strong>Nome:</strong> ${dadosEntrega.nome}</p>
+                <p><strong>Telefone:</strong> ${dadosEntrega.telefone}</p>
+                <p><strong>Endereço:</strong> ${dadosEntrega.endereco.rua}, ${dadosEntrega.endereco.numero}</p>
+                <p><strong>Complemento:</strong> ${dadosEntrega.endereco.complemento || 'Não informado'}</p>
+                <p><strong>Bairro:</strong> ${dadosEntrega.endereco.bairro}</p>
+                <p><strong>CEP:</strong> ${dadosEntrega.endereco.cep}</p>
+                <p><strong>Cidade:</strong> ${dadosEntrega.endereco.cidade}</p>
+                <p><strong>Estado:</strong> ${dadosEntrega.endereco.estado}</p>
+            `;
+
+            try {
+                // Criar preferência de pagamento
+                const token = localStorage.getItem('token');
+                const preferenceResponse = await fetch('http://localhost:3000/pagamentos/create-preference', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        itens: carrinho.map(item => ({
+                            produto: {
+                                ...item.produto,
+                                preco: parseFloat(item.produto.preco)
+                            },
+                            quantidade: parseInt(item.quantidade)
+                        }))
+                    })
+                });
+
+                if (!preferenceResponse.ok) {
+                    const errorData = await preferenceResponse.json();
+                    throw new Error(errorData.error || 'Erro ao criar preferência de pagamento');
+                }
+
+                const preference = await preferenceResponse.json();
+
+                // Criar botão do Mercado Pago
+                const mp = new MercadoPago('APP_USR-871a25e9-da6a-421e-8518-fb23002a2b4e');
+                const checkout = mp.checkout({
+                    preference: {
+                        id: preference.id
+                    },
+                    render: {
+                        container: '#payment-button-container',
+                        label: 'Pagar'
+                    }
+                });
+            } catch (error) {
+                console.error('Erro ao configurar pagamento:', error);
+                alert('Erro ao configurar pagamento: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html> 

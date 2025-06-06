@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="tela-Inicial.css">
+    <script src="../js/auth.js"></script>
+    <title>Início</title>
+</head>
+<body>
+    <!-- Incluir o header comum -->
+    <div id="header-container"></div>
+
+    <div class="container">
+        <button class="seta esquerda" onclick="rolarCarrossel(-1)">❮</button>
+        <section class="carrossel" id="carrossel"></section>
+        <button class="seta direita" onclick="rolarCarrossel(1)">❯</button>
+    </div>
+
+    <h1 class="titulo">Produtos em destaque</h1>
+    <section class="produtos-destaque"></section>
+
+    <script src="../components/header.js"></script>
+    <script>
+        // Carregar o header
+        fetch('../components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
+    <script type="module" src="carregaDestaques.js"></script>
+    <script type="module" src="carregaCarrossel.js"></script>
+    <script type="module">
+        import configurarBotoesCarrinho from '../adicionaAoCarrinho.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            configurarBotoesCarrinho();
+        });
+    </script>
+
+    <!-- descricao carrossel -->
+    <script> 
+        const carrossel = document.getElementById('carrossel');
+        const cards = carrossel.querySelectorAll('.card');
+        let slideAtual = 0;
+
+        function atualizarBotoes() {
+            const cards = carrossel.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                const botao = card.querySelector('.descricao-carrossel');
+                botao.style.display = index === slideAtual ? 'flex' : 'none';
+            });
+        }
+
+        function rolarCarrossel(direcao) {
+            const cards = carrossel.querySelectorAll('.card');
+            slideAtual += direcao;
+
+            if (slideAtual < 0) slideAtual = cards.length - 1;
+            if (slideAtual >= cards.length) slideAtual = 0;
+
+            cards[slideAtual].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+            atualizarBotoes();
+        }
+
+        // Inicializa botão do primeiro slide
+        document.addEventListener('DOMContentLoaded', atualizarBotoes);
+    </script>
+
+    <script>
+        // Verificar autenticação ao carregar a página
+        document.addEventListener('DOMContentLoaded', auth.verificarAutenticacao);
+    </script>
+</body>
+</html>

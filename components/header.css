@@ -1,0 +1,173 @@
+.header {
+  background-color: #CEC0A0;
+  color: white;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar {
+  display: flex;
+  gap: 20px;
+  background-color: #CEC0A0;
+  padding: 10px;
+}
+
+.sidebar a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn {
+  padding: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: #B0956D;
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #ffffff00;
+  color: black;
+  padding: 20px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.dropbtn:hover {
+  background-color: #B0956D;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #EBE6D9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 6px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 6px;
+}
+
+.dropdown-content a:hover {
+  background-color: #B0956D;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.ola-username {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.carrinho {
+  background-image: url(../assets/icones/icone-carrinho.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.btn-sair {
+  background-color: #cec0a000;
+  width: 150px;
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-sair:hover {
+  background-color: #cc1f1f;
+  color: white;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 3;
+}
+
+/* Side bar Mobile */
+@media (max-width: 1024px) {
+  .header {
+    position: relative;
+  }
+
+  .menu-btn {
+    display: block !important;
+  }
+
+  .sidebar {
+    display: none !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background-color: #CEC0A0;
+    padding: 10px;
+    z-index: 2;
+  }
+
+  .sidebar.show {
+    display: flex !important;
+  }
+
+  .btn-sair {
+    width: 180px;
+    font-size: 20px;
+    display: flex;
+  }
+
+  .ola-username {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+
+  .carrinho {
+    margin-left: auto;
+  }
+} 

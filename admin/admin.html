@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="../js/auth.js"></script>
+    <script>
+        let atualizacaoAutomatica;
+
+        // Função para formatar data
+        function formatarData(data) {
+            const dataObj = new Date(data);
+            const opcoes = { 
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            };
+            return dataObj.toLocaleString('pt-BR', opcoes);
+        }
+
+        // Função para formatar status
+        function formatarStatus(status) {
+            const statusMap = {
+                'pendente': 'Pendente',
+                'aprovado': 'Aprovado',
+                'em_andamento': 'Em Andamento',
+                'concluido': 'Concluído',
+                'cancelado': 'Cancelado'
+            };
+            return statusMap[status] || status;
+        }
+
+        // Função para obter a classe CSS do status
+        function getStatusClass(status) {
+            const classMap = {
+                'pendente': 'status-pendente',
+                'aprovado': 'status-aprovado',
+                'em_andamento': 'status-em-andamento',
+                'concluido': 'status-concluido',
+                'cancelado': 'status-cancelado'
+            };
+            return classMap[status] || '';
+        }
+
+        // Verifica se é admin ao carregar a página
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Verifica autenticação e permissão de admin
+            if (!auth.verificarAdmin()) {
+                window.location.href = '../tela-Login.html';
+                return;
+            }
+
+            await carregarPedidos();
+            
+            // Inicia atualização automática a cada 30 segundos
+            atualizacaoAutomatica = setInterval(carregarPedidos, 30000);
+        });
+
+        // Limpa o intervalo quando a página é fechada
+        window.addEventListener('beforeunload', () => {
+            if (atualizacaoAutomatica) {
+                clearInterval(atualizacaoAutomatica);
+            }
+        });
+
+        async function carregarPedidos() {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    throw new Error('Token não encontrado');
+                }
+
+                const response = await fetch('http://localhost:3000/admin/pedidos', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.status === 403) {
+                    throw new Error('Acesso negado. Você não tem permissão de administrador.');
+                }
+
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar pedidos');
+                }
+
+                const pedidos = await response.json();
+                const pedidosContainer = document.querySelector('.pedidos-container');
+                pedidosContainer.innerHTML = '';
+
+                if (pedidos.length === 0) {
+                    pedidosContainer.innerHTML = '<p class="sem-pedidos">Nenhum pedido encontrado.</p>';
+                    return;
+                }
+
+                // Ordena os pedidos: primeiro os pendentes, depois por data (mais recentes primeiro)
+                pedidos.sort((a, b) => {
+                    if (a.status === 'pendente' && b.status !== 'pendente') return -1;
+                    if (a.status !== 'pendente' && b.status === 'pendente') return 1;
+                    return new Date(b.createdAt) - new Date(a.createdAt);
+                });
+
+                pedidos.forEach(pedido => {
+                    const pedidoElement = document.createElement('article');
+                    pedidoElement.className = `pedido ${getStatusClass(pedido.status)}`;
+                    pedidoElement.innerHTML = `
+                        <div class="pedido-header">
+                            <div class="pedido-info">
+                                <h3>${pedido.numeroPedido || `Pedido #${pedido._id}`}</h3>
+                                <span class="status-badge ${getStatusClass(pedido.status)}">${formatarStatus(pedido.status)}</span>
+                            </div>
+                            <span class="data">Realizado em: ${formatarData(pedido.createdAt)}</span>
+                        </div>
+                        <div class="cliente-info">
+                            <p><strong>Cliente:</strong> ${pedido.usuario ? pedido.usuario.username : 'Cliente não identificado'}</p>
+                            ${pedido.endereco ? `
+                                <div class="endereco">
+                                    <p><strong>Endereço de entrega:</strong></p>
+                                    <p>${pedido.endereco.rua}, ${pedido.endereco.numero}
+                                       ${pedido.endereco.complemento ? ` - ${pedido.endereco.complemento}` : ''}</p>
+                                    <p>${pedido.endereco.bairro} - ${pedido.endereco.cidade}/${pedido.endereco.estado}</p>
+                                    <p>CEP: ${pedido.endereco.cep}</p>
+                                </div>
+                            ` : ''}
+                        </div>
+                        <div class="produtos">
+                            ${pedido.itens ? pedido.itens.map(item => `
+                                <div class="produto-item">
+                                    <span>${item.produto ? item.produto.nome : 'Produto não encontrado'}</span>
+                                    <span>Qtd: ${item.quantidade}</span>
+                                    <span>R$ ${item.produto ? item.produto.preco.toFixed(2) : '0.00'}</span>
+                                </div>
+                            `).join('') : '<p>Nenhum item no pedido</p>'}
+                        </div>
+                        <div class="pedido-footer">
+                            <p class="total"><strong>Total:</strong> R$ ${pedido.total ? pedido.total.toFixed(2) : '0.00'}</p>
+                            <select class="status" onchange="atualizarStatus('${pedido._id}', this.value)" ${pedido.status === 'cancelado' ? 'disabled' : ''}>
+                                <option value="pendente" ${pedido.status === 'pendente' ? 'selected' : ''}>Pendente</option>
+                                <option value="aprovado" ${pedido.status === 'aprovado' ? 'selected' : ''}>Aprovado</option>
+                                <option value="em_andamento" ${pedido.status === 'em_andamento' ? 'selected' : ''}>Em Andamento</option>
+                                <option value="concluido" ${pedido.status === 'concluido' ? 'selected' : ''}>Concluído</option>
+                                <option value="cancelado" ${pedido.status === 'cancelado' ? 'selected' : ''}>Cancelado</option>
+                            </select>
+                        </div>
+                    `;
+                    pedidosContainer.appendChild(pedidoElement);
+                });
+            } catch (error) {
+                const pedidosContainer = document.querySelector('.pedidos-container');
+                pedidosContainer.innerHTML = `<p class="erro">Erro: ${error.message}</p>`;
+                
+                // Se for erro de permissão, redireciona para o login após 2 segundos
+                if (error.message.includes('Acesso negado')) {
+                    setTimeout(() => {
+                        window.location.href = '../tela-Login.html';
+                    }, 2000);
+                }
+            }
+        }
+
+        async function atualizarStatus(pedidoId, novoStatus) {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    throw new Error('Token não encontrado');
+                }
+
+                const response = await fetch(`http://localhost:3000/admin/pedidos/${pedidoId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ status: novoStatus })
+                });
+
+                if (response.status === 403) {
+                    throw new Error('Acesso negado. Você não tem permissão de administrador.');
+                }
+
+                if (!response.ok) {
+                    throw new Error('Erro ao atualizar status do pedido');
+                }
+
+                // Recarrega a lista de pedidos imediatamente
+                await carregarPedidos();
+            } catch (error) {
+                alert(error.message);
+                if (error.message.includes('Acesso negado')) {
+                    window.location.href = '../tela-Login.html';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Painel Administrativo - Pedidos</h1>
+        </header>
+        <main>
+            <div class="pedidos-container">
+                <!-- Os pedidos serão carregados aqui dinamicamente -->
+            </div>
+        </main>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #CEC0A0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 24px;
+    text-align: center;
+}
+
+header button {
+    background-color: #cc1f1f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+header button:hover {
+    background-color: #aa1a1a;
+}
+
+main {
+    padding: 0 2rem;
+}
+
+.pedidos-section {
+    background-color: #EBE6D9;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.pedidos-section h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.pedido {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pedido:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.pedido-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pedido-info h3 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 18px;
+}
+
+.data {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-pendente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-aprovado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-em-andamento {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.status-concluido {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-cancelado {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.cliente-info {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.cliente-info p {
+    margin: 5px 0;
+}
+
+.endereco {
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 3px solid #eee;
+}
+
+.endereco p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.endereco p:first-child {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.produtos {
+    margin-bottom: 1rem;
+}
+
+.produto-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.produto-item:last-child {
+    border-bottom: none;
+}
+
+.pedido-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.total {
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+select.status {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+select.status:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Novas classes para mensagens */
+.sem-pedidos, .erro {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.sem-pedidos {
+    color: #6c757d;
+}
+
+.erro {
+    color: #dc3545;
+    background-color: #f8d7da;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    .pedidos-section {
+        padding: 1rem;
+    }
+
+    .pedido {
+        padding: 1rem;
+    }
+
+    .pedido-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .pedido-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .pedido-footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    select.status {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .pedidos-section {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    }
+} 
